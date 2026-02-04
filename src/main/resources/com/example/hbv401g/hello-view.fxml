@@ -14,8 +14,9 @@
     </padding>
 
     <Label fx:id="welcomeText"/>
+    <TextField fx:id="inputinput"/>
     <Button text="Hello!" onAction="#onHelloButtonClick"/>
 
-    <TextField fx:id="input"/>
+    <TextField fx:id="searchinput"/>
     <ListView fx:id="output"/>
 </VBox>
