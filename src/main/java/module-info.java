@@ -1,9 +1,11 @@
-module com.example.hbv401g {
+module is.hi.travelplanner {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
 
+    opens is.hi.travelplanner to javafx.fxml;
 
-    opens com.example.hbv401g to javafx.fxml;
-    exports com.example.hbv401g;
+    opens is.hi.travelplanner.view to javafx.fxml;
+
+    exports is.hi.travelplanner;
 }
