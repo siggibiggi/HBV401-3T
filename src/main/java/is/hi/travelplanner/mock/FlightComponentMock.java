@@ -8,10 +8,16 @@ import java.util.List;
 import is.hi.travelplanner.interfaces.FlightSearchComponent;
 import is.hi.travelplanner.model.Flight;
 
+/**
+ * a mock FlightSearchComponent used to test the TripPlannerController
+ * hardcodes a single test: searching for "Akureyri" returns flight "F-100"
+ * booking or canceling that specific flight will always succeed
+ */
 public class FlightComponentMock implements FlightSearchComponent {
 
     @Override
     public List<Flight> searchFlights(String destination, LocalDate travelDate) {
+        //returns a dummy flight list if the destination matches our test case
         List<Flight> flights = new ArrayList<>();
 
         if ("Akureyri".equalsIgnoreCase(destination)) {
@@ -31,11 +37,13 @@ public class FlightComponentMock implements FlightSearchComponent {
 
     @Override
     public boolean book(String itemID) {
+        //simulates a successful booking
         return "F-100".equals(itemID);
     }
 
     @Override
     public boolean cancel(String itemID) {
+        //simulates a successful cancellation
         return "F-100".equals(itemID);
     }
 }
