@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+
+            <Tab text="Flights">
+                <VBox spacing="10">
+                    <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Destination:"/>
+                        <ComboBox fx:id="flightDestCombo" prefWidth="150" promptText="Select City"/>
+                        <Label text="Date:"/>
+                        <DatePicker fx:id="flightDateInput"/>
+                        <Button text="Search" onAction="#onSearchFlights"/>
+                    </HBox>
+                    <TableView fx:id="flightTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colFlightId" text="ID" prefWidth="100"/>
+                            <TableColumn fx:id="colDeparture" text="From" prefWidth="150"/>
+                            <TableColumn fx:id="colArrival" text="To" prefWidth="150"/>
+                            <TableColumn fx:id="colFlightPrice" text="Price" prefWidth="100"/>
+                        </columns>
+                    </TableView>
+                    <Button text="Add Selected" onAction="#onAddFlightToItinerary"/>
+                </VBox>
+            </Tab>
+
+            <Tab text="Hotels">
+                <VBox spacing="10">
+                    <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Location:"/>
+                        <ComboBox fx:id="hotelLocCombo" prefWidth="150" promptText="Select City"/>
+                        <Label text="Min Beds:"/>
+                        <TextField fx:id="hotelBedsInput" prefWidth="50"/>
+                        <Button text="Search" onAction="#onSearchHotels"/>
+                    </HBox>
+                    <TableView fx:id="hotelTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colHotelName" text="Hotel Name" prefWidth="200"/>
+                            <TableColumn fx:id="colRoomType" text="Room Type" prefWidth="150"/>
+                            <TableColumn fx:id="colRoomPrice" text="Price" prefWidth="100"/>
+                        </columns>
+                    </TableView>
+                    <Button text="Add Selected" onAction="#onAddRoomToItinerary"/>
+                </VBox>
+            </Tab>
+
+            <Tab text="Tours">
+                <VBox spacing="10">
+                    <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Search Query:"/>
+                        <ComboBox fx:id="tourQueryCombo" prefWidth="200" promptText="Select or type..." editable="true"/>
+                        <Button text="Search" onAction="#onSearchTours"/>
+                    </HBox>
+                    <TableView fx:id="tourTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colTourName" text="Tour Name" prefWidth="250"/>
+                            <TableColumn fx:id="colTourCompany" text="Company" prefWidth="150"/>
+                            <TableColumn fx:id="colTourPrice" text="Price" prefWidth="100"/>
+                        </columns>
+                    </TableView>
+                    <Button text="Add Selected" onAction="#onAddTourToItinerary"/>
+                </VBox>
+            </Tab>
+
+            <Tab text="Itinerary">
+                <VBox spacing="10">
+                    <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+                    <Label text="Current Trip Items:"/>
+                    <ListView fx:id="itineraryListView" VBox.vgrow="ALWAYS"/>
+                    <HBox alignment="CENTER_RIGHT" spacing="15">
+                        <Button text="Remove Selected" onAction="#onRemoveFromItinerary"/>
+                        <Label fx:id="totalPriceLabel" text="Total: $0.00"/>
+                        <Button text="Book Trip" onAction="#onBookItinerary"/>
+                    </HBox>
+                </VBox>
+            </Tab>
+
+        </TabPane>
+    </center>
+</BorderPane>

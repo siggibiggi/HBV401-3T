@@ -44,6 +44,32 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>is.hi.fteam</groupId>
+            <artifactId>flight-backend</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/flight.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>hotel-backend</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/hotel.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.daytours</groupId>
+            <artifactId>tour-backend</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/tour.jar</systemPath>
+        </dependency>
+
+
     </dependencies>
 
     <build>
@@ -63,10 +89,9 @@
                 <version>0.0.8</version>
                 <executions>
                     <execution>
-                        <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.hbv401g/com.example.hbv401g.HelloApplication</mainClass>
+                            <mainClass>is.hi.travelplanner.App</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

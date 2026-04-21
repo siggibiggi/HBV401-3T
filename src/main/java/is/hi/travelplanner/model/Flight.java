@@ -23,4 +23,13 @@ public class Flight {
         this.availableSeats = availableSeats;
         this.bookingStatus = bookingStatus;
     }
+
+    public String getFlightID() { return flightID; }
+    public double getPrice() { return price; }
+    public String getDepartureName() { return departureName; }
+    public String getArrivalName() { return arrivalName; }
+    public LocalDateTime getDepartureTime() { return departureTime; }
+    public LocalDateTime getArrivalTime() { return arrivalTime; }
+    public int getAvailableSeats() { return availableSeats; }
+    public boolean isBookingStatus() { return bookingStatus; }
 }

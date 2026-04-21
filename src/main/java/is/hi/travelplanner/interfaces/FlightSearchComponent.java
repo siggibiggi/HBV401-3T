@@ -6,6 +6,7 @@ import is.hi.travelplanner.model.Flight;
 
 public interface FlightSearchComponent {
     List<Flight> searchFlights(String destination, LocalDate travelDate);
+    List<String> getAvailableDestinations();
     boolean book(String itemID);
     boolean cancel(String itemID);
 }
